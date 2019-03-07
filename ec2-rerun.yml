@@ -1,0 +1,39 @@
+---
+- name: provision an Ec2 Instance
+  hosts: local
+  vars:
+      instance_type: t2.micro
+
+      image: ami-41e9c52e
+
+      region: ap-south-1
+
+      gpname: admin
+
+      mykey: ansible
+
+      state: present
+
+      number: 1
+
+      aws_access_key: give your access key here
+
+      aws_secret_key: give your secret access key here
+
+  tasks:
+    - name: Launch an Ec2  instance
+
+      ec2:
+           instance_type: "{{instance_type}}"
+           key_name: "{{mykey}}"
+           image: "{{image}}"
+           aws_access_key: "{{aws_access_key}}"
+           aws_secret_key: "{{aws_secret_key}}"
+           region: "{{region}}"
+           wait: true
+           exact_count: "{{number}}"
+           instance_tags:
+              Name: "{{gpname}}"
+           count_tag:
+              Name: "{{gpname}}"
+      register: ec2
