@@ -6,10 +6,10 @@
   vars:
       instance_type: t2.micro
       image: ami-5b673c34
-      security_group: ansible
+      security_group: security group name
       region: ap-south-1
-      gpname: EC2Admin
-      keypair: ansible
+      gpname: IAM group name
+      keypair: key name
       state: present
       number: 1
       aws_access_key: xxxxxxx
