@@ -8,9 +8,9 @@
 
       region: ap-south-1
 
-      gpname: admin
+      gpname: IAM group name
 
-      mykey: ansible
+      mykey: key name
 
       state: present
 
